@@ -86,8 +86,6 @@ export const mainRoutes: Routes = [
         path: 'khoa',
         loadChildren: () =>
           import('./khoa/khoa.module').then((m) => m.KhoaModule),
-        // canActivate: [RoleGuard],
-        // data: { roles: [Role.Admin, Role.User] },
       },
       // {
       //   path: 'tracuu',
