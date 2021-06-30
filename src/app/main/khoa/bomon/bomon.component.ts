@@ -195,6 +195,8 @@ export class BomonComponent extends BaseComponent implements OnInit {
     }
     save(val: dsbomon) {
       console.log(val);
+
+      val.maPk=this.doneSetupForm.maPk;
       if (this.hiddenID == 0) {
         this.coreService.postbomon(val).subscribe(res => {
           alert("Thêm thành công!");
@@ -233,5 +235,6 @@ export class BomonComponent extends BaseComponent implements OnInit {
     ChangePK(val)
     {
       this.ListBoMon=this.dsbomon.filter(s=> s.maPk==val);
+      this.doneSetupForm.maPk=val;
     }
 }

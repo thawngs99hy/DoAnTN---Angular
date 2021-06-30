@@ -19,7 +19,8 @@ import { jsPDF} from 'jspdf';
 import { autoTable} from 'jspdf-autotable';
 import { giaoviencn } from './../../../model/danhsach';
 import { TutorialService } from 'src/app/lib/tutorial.service';
-
+import { ThongKeService } from '@app/lib/thongke.service';
+import { ThongKeTrangChu } from '@app/model/thongke';
 declare var $: any;
 @Component({
   selector: 'app-phongkhoa',
@@ -40,6 +41,7 @@ export class PhongkhoaComponent extends BaseComponent implements OnInit {
   public showUpdateModal: any;
   public isCreate: any;
   public hiddenID: number;
+  public thongKe:any;
   submitted = false;
   selectedProducts: dsphongkhoa[];
   statuses: any[];
@@ -50,7 +52,8 @@ export class PhongkhoaComponent extends BaseComponent implements OnInit {
 
   @ViewChild(FileUpload, { static: false }) file_image: FileUpload;
   @ViewChild('htmlData') htmlData:ElementRef;
-  constructor(private fb: FormBuilder, injector: Injector, private messageService: MessageService, private confirmationService: ConfirmationService, private coreService: CoreService) {
+  constructor(private fb: FormBuilder, injector: Injector, private messageService: MessageService,
+     private confirmationService: ConfirmationService, private coreService: CoreService, private thongKeService:ThongKeService) {
     super(injector);
   }
   dsphongkhoa: dsphongkhoa[];
@@ -97,6 +100,8 @@ export class PhongkhoaComponent extends BaseComponent implements OnInit {
 
   this.exportColumns = this.cols.map(item => ({title: item.header, dataKey: item.field}));
   }
+
+
   exportPdf(){
 
   }
@@ -137,6 +142,7 @@ export class PhongkhoaComponent extends BaseComponent implements OnInit {
     }
   loadPage(page) {
     this._core.post('/api/PhongKhoas',{page: page, pageSize: this.pageSize}).takeUntil(this.unsubscribe).subscribe(res => {
+      debugger
       this.dsphongkhoas = res.data;
       this.totalRecords =  res.totalItems;
       this.pageSize = res.pageSize;
@@ -144,6 +150,7 @@ export class PhongkhoaComponent extends BaseComponent implements OnInit {
   }
   search() {
     this._core.get('/api/PhongKhoas').takeUntil(this.unsubscribe).subscribe(res => {
+      debugger
       this.dsphongkhoas = res;
     });
   }

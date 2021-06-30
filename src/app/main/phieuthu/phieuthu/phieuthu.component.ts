@@ -98,7 +98,6 @@ export class PhieuthuComponent extends BaseComponent implements OnInit {
   }
 
   createModal() {
-    debugger
     this.doneSetupForm = false;
     this.showUpdateModal = true;
     this.isCreate = true;

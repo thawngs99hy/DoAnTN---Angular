@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
   loadData(){
     return this.thongKeService.getThongKe().subscribe((res:ThongKeTrangChu)=>{
       this.thongKe=res;
-      debugger
+      // debugger
       return res;
     });
   }
