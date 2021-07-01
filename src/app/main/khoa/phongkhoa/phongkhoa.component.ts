@@ -142,7 +142,7 @@ export class PhongkhoaComponent extends BaseComponent implements OnInit {
     }
   loadPage(page) {
     this._core.post('/api/PhongKhoas',{page: page, pageSize: this.pageSize}).takeUntil(this.unsubscribe).subscribe(res => {
-      debugger
+      // debugger
       this.dsphongkhoas = res.data;
       this.totalRecords =  res.totalItems;
       this.pageSize = res.pageSize;
@@ -150,7 +150,7 @@ export class PhongkhoaComponent extends BaseComponent implements OnInit {
   }
   search() {
     this._core.get('/api/PhongKhoas').takeUntil(this.unsubscribe).subscribe(res => {
-      debugger
+      // debugger
       this.dsphongkhoas = res;
     });
   }

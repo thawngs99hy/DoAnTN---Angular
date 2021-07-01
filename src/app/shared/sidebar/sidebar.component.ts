@@ -62,9 +62,9 @@ export class SidebarComponent implements OnInit {
                       {
                         name:'Bậc Lương',url:'/giaovien/bacluong'
                       },
-                      {
-                        name:'Lương',url:'/giaovien/luong'
-                      },
+                      // {
+                      //   name:'Lương',url:'/giaovien/luong'
+                      // },
                       
                       // {
                       //   name:'Lý Lịch GV',url:'/giaovien/lylichgv'
@@ -76,15 +76,15 @@ export class SidebarComponent implements OnInit {
                     url:'',
                     icon:'book-reader',
                     childs:[
-                    //   {
-                    //   name:'Đăng Kí Lich',url:'/giangday/dangkigd'
-                    // },
+                      {
+                      name:'Đăng Kí Lich',url:'/giangday/dangkigd'
+                    },
                     {
                       name:'Học Vấn',url:'/giangday/hocvan'
                     },
-                    // {
-                    //   name:'Khen Thưởng Kỉ Luật',url:'/giangday/khenthuong'
-                    // },
+                    {
+                      name:'Khen Thưởng Kỉ Luật',url:'/giangday/khenthuong'
+                    },
                   ]},
                 
                 ];
